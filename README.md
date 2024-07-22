@@ -49,6 +49,7 @@ To set up the project locally, follow these steps:
     ```
 
 ## Usage
+aya786930@gmail.com
 
 To run the project locally:
 
@@ -99,6 +100,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 If you have any questions or suggestions, feel free to reach out:
 
 - Name: Your Name
-- Email: your.email@example.com
+- Email: aya786930@gmail.com
 
 Thank you for visiting the ALX Backend JavaScript repository!
