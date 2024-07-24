@@ -1,19 +1,20 @@
-// Import signUpUser and uploadPhoto functions
+/* eslint-disable no-unused-vars */
+/* eslint-disable */
 import signUpUser from './4-user-promise.js';
 import uploadPhoto from './5-photo-reject.js';
 
-// Define handleProfileSignup function
 export default function handleProfileSignup(firstName, lastName, fileName) {
-  // Return a new promise that resolves with an array of objects describing the outcome of each promise
-  return Promise.allSettled([
-    signUpUser(firstName, lastName),
-    uploadPhoto(fileName),
-  ]).then((results) => {
-    // Map over the results array to transform each item into the desired format
-    return results.map(result => ({
-      status: result.status,
-      value: result.status === 'fulfilled' ? result.value : result.reason,
+  return new Promise((resolve, reject) => {
+    if (firstName && lastName && fileName) {
+        Promise.allSettled([
+        signUpUser(firstName, lastName),
+        uploadPhoto(fileName),
+      ]);
+    }
+  }).then((response) => {
+    return response.map(response({
+      status: response.status,
+      value: response.status === 'fulfilled' ? response.value : response.reason,
     }));
   });
 }
-
