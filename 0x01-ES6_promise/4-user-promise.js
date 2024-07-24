@@ -3,7 +3,7 @@ function signUpUser(firstName, lastName) {
     if (firstName && lastName) {
       resolve({ firstName, lastName });
     } else {
-      reject(new Error('Both firstName and lastName are required'));
+      reject(new Error(''));
     }
   });
 }
