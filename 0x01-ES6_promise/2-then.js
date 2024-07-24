@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable */
 export default function handleResponseFromAPI(promise) {
-return pomise
+  return pomise
     .then((response) => {
         resolve({status: 200, body: 'Success'});
     })
