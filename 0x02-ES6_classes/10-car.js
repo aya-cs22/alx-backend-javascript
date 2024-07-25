@@ -1,11 +1,29 @@
 export default class Car {
-  constructor(brand, motor, color) {
-    this.brand = brand;
-    this.motor = motor;
-    this.color = color;
-  }
+    constructor(brand, motor, color) {
+      this._brand = brand;
+      this._motor = motor;
+      this._color = color;
+    }
+  
+    cloneCar() {
+      return new Car(this._brand, this._motor, this._color);
+    }
+  
+    get brand() {
+      return this._brand;
+    }
+  
+    get motor() {
+      return this._motor;
+    }
+  
+    get color() {
+      return this._color;
+    }
 
-  cloneCar() {
-    return new Car(this._brand, this._motor, this._color);
+    cloneCar() {
+        const NewCar = this.constructor[Symbol.species] || this.constructor;
+        return new NewCar(this._brand, this._motor, this._color);
+      }
   }
-}
+  
