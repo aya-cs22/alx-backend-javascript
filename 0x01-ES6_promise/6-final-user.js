@@ -5,10 +5,8 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
   return Promise.allSettled([
     signUpUser(firstName, lastName),
     uploadPhoto(fileName),
-  ]).then((response) => {
-    return response.map(response => ({
-      status: response.status,
-      value: response.status === 'fulfilled' ? response.value : response.reason,
-    }));
-  });
+  ]).then((response) => response.map(({ status, value }) => ({
+    status,
+    value: status === 'fulfilled' ? value : undefined,
+  }))); // Ensure this line ends with a parenthesis before the closing brace
 }
