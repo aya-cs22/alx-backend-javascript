@@ -1,15 +1,15 @@
-export default class  Airport {
+export default class Airport {
   constructor(name, code) {
     this.name = name;
     this.code = code;
   }
 
   get name() {
-    this.name;
+    return this._name;
   }
 
   get code() {
-    this.code;
+    return this.code;
   }
 
   set name(value) {
@@ -19,6 +19,7 @@ export default class  Airport {
   set code(value) {
     this._code = value;
   }
+
   toString() {
     return `[object ${this._code}]`;
   }
