@@ -7,14 +7,16 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
     signUpUser(firstName, lastName),
     uploadPhoto(fileName)
   ]).then((responses) => (
-    responses.map((response) => ({
-      status: response.status,
-      value: response.status === 'fulfilled' ? response.value : response.reason,
+    responses.map((res) => ({
+      status: res.status,
+      value: res.status === 'fulfilled' ? res.value : res.reason,
     }))
   ));
 }
 
 
+
+// export default async function handleProfileSignup(firstName, lastName, fileName) {
 //   return Promise
 //     .allSettled([signUpUser(firstName, lastName), uploadPhoto(fileName)])
 //     .then((res) => (
