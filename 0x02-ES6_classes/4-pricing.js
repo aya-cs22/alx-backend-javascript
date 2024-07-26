@@ -25,7 +25,7 @@ export default class extends Currency {
 
   displayFullPrice() {
     const currency = this._currency;
-    return `${this.amount} ${currency.name} ${currency.code}`;
+    return `${this.amount} ${currency.name} (${currency.code})`;
   }
 
   static convertPrice(amount, conversionRate) {
