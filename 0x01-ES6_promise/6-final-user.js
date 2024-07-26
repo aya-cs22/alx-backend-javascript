@@ -8,5 +8,5 @@ export default function handleProfileSignup(firstName, lastName, fileName) {
   ]).then((response) => response.map(({ status, value }) => ({
     status,
     value: status === 'fulfilled' ? value : undefined,
-  }))); // Ensure this line ends with a parenthesis before the closing brace
+  })));
 }
