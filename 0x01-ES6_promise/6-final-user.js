@@ -6,9 +6,24 @@ export default async function handleProfileSignup(firstName, lastName, fileName)
     signUpUser(firstName, lastName),
     uploadPhoto(fileName),
   ]).then((responses) => {
-    responses.map((response) => ({
+    return responses.map((response) => ({
       status: response.status,
       value: response.status === 'fulfilled' ? response.value : response.reason,
     }));
   });
 }
+
+// import signUpUser from './4-user-promise';
+// import uploadPhoto from './5-photo-reject';
+
+// export default async function handleProfileSignup(firstName, lastName, fileName) {
+//   return Promise.allSettled([
+//     signUpUser(firstName, lastName),
+//     uploadPhoto(fileName),
+//   ]).then((responses) => {
+//     responses.map((response) => ({
+//       status: response.status,
+//       value: response.status === 'fulfilled' ? response.value : response.reason,
+//     }));
+//   });
+// }
