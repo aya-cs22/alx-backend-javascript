@@ -15,3 +15,7 @@ var director1 = {
     numberOfReports: 17,
 };
 console.log(director1);
+function printTeacher(firstName, lastName) {
+    return "".concat(firstName.charAt(0), ". ").concat(lastName);
+}
+console.log(printTeacher("John", "Doe"));
