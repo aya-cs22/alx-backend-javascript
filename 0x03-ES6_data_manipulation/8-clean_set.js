@@ -1,12 +1,12 @@
 export default function cleanSet(set, startString) {
   const result = new Set();
-  if (startString === '') {
+  if (typeof startString !== 'string' || startString === '') {
     return '';
   }
 
   for (const value of set) {
     if (typeof value !== 'string') {
-      return ''; // Return empty string if any non-string type is found
+      return '';
     }
   }
 
