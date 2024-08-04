@@ -1,22 +1,23 @@
+// 8-clean_set.js
 export default function cleanSet(set, startString) {
-  // Early return if startString is not a string or is empty
+  const result = new Set();
+  
+  // Early return if startString is not valid
   if (typeof startString !== 'string' || startString === '') {
     return '';
   }
 
-  const result = new Set();
-
-  // Single loop to filter and transform strings, and validate types
   for (const value of set) {
-    if (typeof value === 'string' && value.startsWith(startString)) {
-      result.add(value.slice(startString.length));
-    } else if (typeof value !== 'string') {
-      // If a non-string type is found, return an empty string immediately
+    if (typeof value === 'string') {
+      if (value.startsWith(startString)) {
+        result.add(value.slice(startString.length));
+      }
+    } else {
+      // Return empty string if a non-string type is found
       return '';
     }
   }
 
-  // Join the processed strings with hyphens
   return Array.from(result).join('-');
 }
 
