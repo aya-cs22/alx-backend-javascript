@@ -5,14 +5,11 @@ export default function cleanSet(set, startString) {
   }
 
   for (const value of set) {
-    if (typeof value !== 'string') {
-      return '';
-    }
-  }
-
-  for (const value of set) {
     if (typeof value === 'string' && value.startsWith(startString)) {
       result.add(value.slice(startString.length));
+    } else if (typeof value !== 'string') {
+      // If a non-string type is found, return an empty string immediately
+      return '';
     }
   }
   return Array.from(result).join('-');
