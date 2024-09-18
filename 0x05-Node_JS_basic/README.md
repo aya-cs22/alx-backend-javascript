@@ -54,5 +54,3 @@ At the end of this project, you are expected to be able to explain to anyone, wi
 
 3.  **Run the Application**:
     node app.js 
-    npx babel-node app.js
-    npx nodemon app.js
