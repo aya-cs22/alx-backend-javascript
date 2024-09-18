@@ -6,14 +6,11 @@ app.get('/', (req, res) => {
   res.send('Hello Holberton School!');
 });
 
-app.get('/students', (req, res) => {
-  countStudents(process.argv[2])
-    .then((data) => {
-      res.send(data);
-    }).catch((error) => {
-      res.send(error.message);
-    });
-});
+aapp.get('/students', async (req, res) => {
+    res.type('text/plain');
+    const studentsList = await getStudentsList(path.join(__dirname, 'database.csv'));
+    res.send(`This is the list of our students\n${studentsList}`);
+  });
 app.listen(port, () => {
 });
 
