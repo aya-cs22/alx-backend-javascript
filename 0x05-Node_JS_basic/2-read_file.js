@@ -42,5 +42,4 @@ const countStudents = (path) => {
     console.error('Cannot load the database');
   }
 };
-
 module.exports = countStudents;
