@@ -26,4 +26,5 @@ const countStudents = async (path) => {
     throw err;
   }
 };
+
 module.exports = countStudents;
