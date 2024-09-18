@@ -16,7 +16,6 @@ const countStudents = (path) => {
       throw new Error('Cannot load the database');
     }
 
-    
     // const headers = lines[0].split(',');
     // ["firstname", "lastname", "age", "field"]
     const students = lines.slice(1);
