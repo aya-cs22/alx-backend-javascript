@@ -1,29 +1,40 @@
 const http = require('http');
-const countStudents = require('./2-read_file');
+const countStudents = require('./3-read_file_async');
 
-const hostMan = 'localhost';
-const port = 1254;
-const app = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  if (req.url === '/') {
-    res.write('Hello Holberton School!');
-    res.end('');
-  }
-  if (req.url === '/students') {
-    res.write('This is the list of our students');
-    try{
-      const result = countStudents(process.argv[2]);
-      res.write(result);
-  } catch (error) {
-    res.write('Cannot load the database');
-  }
-  res.end();
+function homeHandeler(req, res) {
+  res.end('Hello Holberton School!');
 }
-});
 
-app.listen(port, hostMan, () => {
+function studentsHandeler(req, res) {
+  res.write('This is the list of our students\n');
+  countStudents(process.argv[2])
+    .then((result) => {
+      res.write(result.join('\n'));
+      res.end();
+    })
+    .catch((error) => {
+      res.write(error.message);
+      res.end();
+    });
+}
 
+const port = 1245;
+const host = 'localhost';
+const routes = {
+  '/': homeHandeler,
+  '/students': studentsHandeler,
+};
+
+const app = (req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
+
+  const { url } = req;
+  if (routes[url]) routes[url](req, res);
+};
+
+const server = http.createServer(app);
+server.listen(port, host, () => {
+  console.log(`Server is running on http://${host}:${port}`);
 });
 
 module.exports = app;
