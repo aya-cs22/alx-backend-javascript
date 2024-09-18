@@ -7,6 +7,6 @@ app.on((req, res) => {
   res.setHeader('Content-Type', 'text/plain');
   res.end('Hello Holberton School!');
 });
-server.listen(port, hostMan, () =>{
+server.listen(port, hostMan, () => {
 });
 module.exports = app;
