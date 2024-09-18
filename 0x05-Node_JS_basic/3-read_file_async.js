@@ -25,7 +25,7 @@ const countStudents = (path) => {
       for (const [field, names] of Object.entries(fieldCounts)) {
         console.log(`Number of students in ${field}: ${names.length}. List: ${names.join(', ')}`);
       }
-      resolve(); // Resolve the promise when done
+    //   resolve();
     });
   });
 };
