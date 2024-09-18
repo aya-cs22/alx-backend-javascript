@@ -15,11 +15,11 @@ const app = http.createServer((req, res) => {
     try{
       const result = countStudents(process.argv[2]);
       res.write(result);
-    }
   } catch (error) {
     res.write('Cannot load the database');
   }
   res.end();
+}
 });
 
 app.listen(port, hostMan, () => {
